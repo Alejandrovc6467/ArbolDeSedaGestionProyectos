@@ -72,7 +72,7 @@ const getMedicos = () => {
                 "correo": "alejandrovc6467@gmail.com",
                 "especialidad": "Dermatólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Apasionada por cuidar la piel y mejorar la salud dermatológica. Brindo atención médica profesional y personalizada."
             },
@@ -84,7 +84,7 @@ const getMedicos = () => {
                 "correo": "luisamartinez@gmail.com",
                 "especialidad": "Pediatra",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Dedicada a brindar atención pediátrica integral. Me apasiona cuidar y promover la salud de los niños."
             },
@@ -96,7 +96,7 @@ const getMedicos = () => {
                 "correo": "carlossanchez@gmail.com",
                 "especialidad": "Psiquiatra",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Experto en salud mental, brindo atención profesional y empática para mejorar la calidad de vida."
             },
@@ -108,7 +108,7 @@ const getMedicos = () => {
                 "correo": "marialopez@gmail.com",
                 "especialidad": "Oftalmólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Apasionada por la salud ocular. Ofrezco atención oftalmológica de calidad para cuidar la visión de mis pacientes."
             },
@@ -120,7 +120,7 @@ const getMedicos = () => {
                 "correo": "jorgehernandez@gmail.com",
                 "especialidad": "Ginecólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Comprometido con la salud de las mujeres. Brindo atención ginecológica integral y promuevo el bienestar femenino."
             },
@@ -132,7 +132,7 @@ const getMedicos = () => {
                 "correo": "pedrodiaz@gmail.com",
                 "especialidad": "Nutricionista",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Promuevo una alimentación saludable y equilibrada para mejorar la calidad de vida y prevenir enfermedades."
             },
@@ -144,7 +144,7 @@ const getMedicos = () => {
                 "correo": "sofiaramirez@gmail.com",
                 "especialidad": "Dentista",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Apasionada por cuidar la salud bucal. Brindo tratamientos dentales de calidad para mantener sonrisas saludables."
             },
@@ -156,7 +156,7 @@ const getMedicos = () => {
                 "correo": "elenavargas@gmail.com",
                 "especialidad": "Endocrinólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
-                "contrasenia": "1e3fd52c5d3e2d3d09d90bf9262f56c79df95059382310b988f0f9448bdf119e",
+                "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
                 "rol": "medico",
                 "biografia": "Especialista en equilibrio hormonal. Brindo atención médica integral para mejorar la salud endocrina de mis pacientes."
             }
@@ -243,6 +243,39 @@ const getCitasUsuario = (cedula, fecha) => {
         }
     }
    
+    return citasRetornar;
+
+};
+
+
+//obtengo todas las citas de un usurio SIN IMPORTAR LA FECHA, ABSOLUTAMENTE TODAS
+//Tambien si el rol es doctor se obtienen todas las citas de sus pacientes
+//este metodo es para el apartado del expediente
+const getCitasTodas = (cedula) => {
+
+    var citas = getCitas();
+    var citasRetornar = [];
+
+    if(getUsuario(getSessionStorageUser()) != null ){
+        console.log('es usuario');
+         
+        for (let i = 0; i < citas.length; i++) {
+        
+            if (citas[i].usuarioCedula === cedula) {
+                citasRetornar.push(citas[i]);
+            }
+        }
+    }else{
+        
+        for (let i = 0; i < citas.length; i++) {
+       
+            if (citas[i].cedulaMedico === cedula) {
+                citasRetornar.push(citas[i]);
+            }
+        }
+
+    }
+
     return citasRetornar;
 
 };

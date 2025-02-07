@@ -8,7 +8,7 @@ const getNombreApellidosVariablesDeSesion = () => {
 
     var datosUser = getUsuario(getSessionStorageUser());
 
-    var nombreApellidos = datosUser.nombre + " " +datosUser.apellidos;
+    var nombreApellidos = datosUser.nombre + " " + datosUser.apellidos;
 
     bienvenida_nameUser.textContent = nombreApellidos;
 
@@ -702,3 +702,41 @@ const cambiarEstadoCita = (id) => {
   getCitasDelDia(dia, parseInt(mes, 10) - 1, anio);
 
 };
+
+
+
+
+
+
+
+/* expediente de citas medicas */
+
+const cargarExpediente = () => {
+  var citas = getCitasTodas(getSessionStorageUser()); // Obtener todas las citas
+  console.log(citas);
+  
+  const expedienteBody = document.querySelector('.expediente_body');
+  expedienteBody.innerHTML = ""; // Limpiar contenido previo
+
+  citas.forEach(cita => {
+      let citaDiv = document.createElement('div');
+      citaDiv.classList.add('expediente_cita');
+      
+      citaDiv.innerHTML = `
+          <div class="expediente_cita_head">
+              <p><span class="subtitle_cita_expediente">ID:</span> ${cita.id}</p>
+              <p><span class="subtitle_cita_expediente">Fecha:</span> ${cita.fecha}</p>
+          </div>
+          <p><span class="subtitle_cita_expediente">Hora:</span> ${cita.hora}</p>
+          <p><span class="subtitle_cita_expediente">Doctor:</span> ${cita.nombreMedico} / ${cita.cedulaMedico} / ${cita.especialidad}</p>
+          <p><span class="subtitle_cita_expediente">Paciente:</span> ${cita.usuarioCedula}</p>
+          <br>
+          <p><span class="subtitle_cita_expediente">Estado de cita:</span> ${cita.estado}</p>
+      `;
+      
+      expedienteBody.appendChild(citaDiv);
+  });
+};
+
+
+cargarExpediente();
