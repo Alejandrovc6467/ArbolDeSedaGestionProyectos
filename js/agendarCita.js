@@ -521,7 +521,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             const medico = getMedico(cedulaMedico);
 
-            emailjs.send("service_wx19xrb","template_6eali6n",{
+            emailjs.send("service_wx19xrb  ","template_6eali6n",{
               from_name: "Clínica Árbol de Seda",
               to_name: medico.nombre + " " + medico.apellidos,
               message: "El paciente " + paciente.nombre + " " + paciente.apellidos + " quiere agendar una cita contigo el día: " + fecha + " a las: " + hora ,
@@ -672,7 +672,7 @@ const cambiarEstadoCita = (id) => {
   
   if(actualizarEstadoCita(id)){
 
-    emailjs.send("service_wx19xrb","template_6eali6n",{
+    emailjs.send("service_wx19xrb  ","template_6eali6n",{
       from_name: "Clínica Árbol de Seda",
       to_name: paciente.nombre + " " + paciente.apellidos,
       message: "Su cita del día: " + cita.fecha + " a las " + cita.hora + " con el médico: " + medico.nombre + " " + medico.apellidos +" en la especialidad: " + cita.especialidad + " fue APROBADA, recuerda ser puntual",
@@ -681,7 +681,7 @@ const cambiarEstadoCita = (id) => {
 
   }else{
 
-    emailjs.send("service_wx19xrb","template_6eali6n",{
+    emailjs.send("service_wx19xrb  ","template_6eali6n",{
       from_name: "Clínica Árbol de Seda",
       to_name: paciente.nombre + " " + paciente.apellidos,
       message: "Su cita del día: " + cita.fecha + " a las " + cita.hora + " con el médico: " + medico.nombre + " " + medico.apellidos +" en la especialidad: " + cita.especialidad + " fue CANCELADA, nuestro médico se disculpa por los inconvenientes y te envita a agendar una nueva cita",
