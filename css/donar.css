@@ -55,6 +55,11 @@ img {
     transition: background 0.3s;
 }
 
+.btnDonar{
+    margin-top: 3em;
+}
+
 .btn-primary:hover {
     background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+
 }
