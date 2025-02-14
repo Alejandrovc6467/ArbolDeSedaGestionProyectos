@@ -15,13 +15,13 @@ const getUsuarios = () => {
 
 
 //retorno un usuario si alguna cedula coincide
-const getUsuario = (cedula) => {
+const getUsuario = (correo) => {
 
     var usuarios = getUsuarios();
 
     for (let i = 0; i < usuarios.length; i++) {
        
-        if (usuarios[i].cedula === cedula) {
+        if (usuarios[i].correo === correo) {
             return usuarios[i];
         }
     }
@@ -172,13 +172,13 @@ const getMedicos = () => {
 };
 
 // retorno un medico si hay alguna coincidencia con la cedula
-const getMedico = (cedula) => {
+const getMedico = (correo) => {
 
     var medicos = getMedicos();
 
     for (let i = 0; i < medicos.length; i++) {
        
-        if (medicos[i].cedula === cedula) {
+        if (medicos[i].correo === correo) {
             return medicos[i];
         }
     }
@@ -494,7 +494,7 @@ const getSessionStorageUser = () => {
     var userSessionSessionStorage = []; 
     userSessionSessionStorage =  JSON.parse(sessionStorage.getItem("sesionUser"));
 
-    return userSessionSessionStorage.cedula;
+    return userSessionSessionStorage.correo;
 
 };
 

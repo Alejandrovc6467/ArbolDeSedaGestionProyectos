@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
     formularioLogin.addEventListener("submit", (event)=>{
         event.preventDefault()
 
-        const {cedula, contrasenia} = getDatosFormulario();
+        const {correo, contrasenia} = getDatosFormulario();
 
-        console.log(cedula, contrasenia);
+        console.log(correo, contrasenia);
 
         console.log(getUsuarios(), "desde el login event solo para ver los usuarios registrados")
 
-        const esValido = verificarLogin(cedula, contrasenia);
+        const esValido = verificarLogin(correo, contrasenia);
 
-        esValido ? inicioSesionExitoso(cedula) : errorInicioSesion();
+        esValido ? inicioSesionExitoso(correo) : errorInicioSesion();
     });
 
 });
@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
 //obtener los datos del formulario
 const getDatosFormulario = ()=>{
 
-    const cedula = document.getElementById("cedula").value.trim();
+    const correo = document.getElementById("correo").value.trim();
     const contrasenia = document.getElementById("contrasenia").value.trim();;
-    return {cedula, contrasenia};
+    return {correo, contrasenia};
 };
 
 
-
+/*
 // Obtener el campo de entrada del input cedula en directo
 document.getElementById("cedula").addEventListener("input", function() {
     // Obtener el valor actual del campo
@@ -53,12 +53,13 @@ document.getElementById("cedula").addEventListener("input", function() {
     this.value = valor;
      
 });
+*/
 
 
 
 
 //verificar Login
-const verificarLogin = (cedula, contrasenia)=>{
+const verificarLogin = (correo, contrasenia)=>{
 
     var contraseniaHash = encriptarPassword(contrasenia);
 
@@ -66,7 +67,7 @@ const verificarLogin = (cedula, contrasenia)=>{
 
     for (let i = 0; i < usuarios.length; i++) {
        
-        if (usuarios[i].cedula === cedula && usuarios[i].contrasenia === contraseniaHash  ) {
+        if (usuarios[i].correo === correo && usuarios[i].contrasenia === contraseniaHash  ) {
             return true
         }
     }
@@ -75,7 +76,7 @@ const verificarLogin = (cedula, contrasenia)=>{
 
     for (let i = 0; i < medicos.length; i++) {
        
-        if (medicos[i].cedula === cedula && medicos[i].contrasenia === contraseniaHash ) {
+        if (medicos[i].correo === correo && medicos[i].contrasenia === contraseniaHash ) {
             return true
         }
     }
@@ -86,10 +87,10 @@ const verificarLogin = (cedula, contrasenia)=>{
 
 
 // inicio de sesion exitoso, se invoca si todo sale bien al momento del logueo
-const inicioSesionExitoso = (cedula)=>{
+const inicioSesionExitoso = (correo)=>{
 
     const sesionUser = {
-        cedula: cedula
+        correo: correo
     };
    
     localStorage.setItem("sesionUser", JSON.stringify(sesionUser));
