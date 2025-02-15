@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     formularioLogin.addEventListener("submit", (event)=>{
         event.preventDefault()
 
+<<<<<<< HEAD
         const {nombreUsuario, contrasenia} = getDatosFormulario();
 
         console.log(nombreUsuario, contrasenia);
@@ -15,6 +16,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const esValido = verificarLogin(nombreUsuario, contrasenia);
 
         esValido ? inicioSesionExitoso(nombreUsuario) : errorInicioSesion();
+=======
+        const {correo, contrasenia} = getDatosFormulario();
+
+        console.log(correo, contrasenia);
+
+        console.log(getUsuarios(), "desde el login event solo para ver los usuarios registrados")
+
+        const esValido = verificarLogin(correo, contrasenia);
+
+        esValido ? inicioSesionExitoso(correo) : errorInicioSesion();
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
     });
 
 });
@@ -23,6 +35,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 //obtener los datos del formulario
 const getDatosFormulario = ()=>{
 
+<<<<<<< HEAD
     const nombreUsuario = document.getElementById("nombreUsuario").value.trim();
     const contrasenia = document.getElementById("contrasenia").value.trim();;
     return {nombreUsuario, contrasenia};
@@ -30,6 +43,14 @@ const getDatosFormulario = ()=>{
 
 
 
+=======
+    const correo = document.getElementById("correo").value.trim();
+    const contrasenia = document.getElementById("contrasenia").value.trim();;
+    return {correo, contrasenia};
+};
+
+
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 /*
 // Obtener el campo de entrada del input cedula en directo
 document.getElementById("cedula").addEventListener("input", function() {
@@ -55,11 +76,19 @@ document.getElementById("cedula").addEventListener("input", function() {
      
 });
 */
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
 
 
 //verificar Login
+<<<<<<< HEAD
 const verificarLogin = (nombreUsuario, contrasenia)=>{
+=======
+const verificarLogin = (correo, contrasenia)=>{
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
     var contraseniaHash = encriptarPassword(contrasenia);
 
@@ -67,7 +96,11 @@ const verificarLogin = (nombreUsuario, contrasenia)=>{
 
     for (let i = 0; i < usuarios.length; i++) {
        
+<<<<<<< HEAD
         if (usuarios[i].nombreUsuario === nombreUsuario && usuarios[i].contrasenia === contraseniaHash  ) {
+=======
+        if (usuarios[i].correo === correo && usuarios[i].contrasenia === contraseniaHash  ) {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
             return true
         }
     }
@@ -76,7 +109,11 @@ const verificarLogin = (nombreUsuario, contrasenia)=>{
 
     for (let i = 0; i < medicos.length; i++) {
        
+<<<<<<< HEAD
         if (medicos[i].nombreUsuario === nombreUsuario && medicos[i].contrasenia === contraseniaHash ) {
+=======
+        if (medicos[i].correo === correo && medicos[i].contrasenia === contraseniaHash ) {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
             return true
         }
     }
@@ -87,10 +124,17 @@ const verificarLogin = (nombreUsuario, contrasenia)=>{
 
 
 // inicio de sesion exitoso, se invoca si todo sale bien al momento del logueo
+<<<<<<< HEAD
 const inicioSesionExitoso = (nombreUsuario)=>{
 
     const sesionUser = {
         nombreUsuario: nombreUsuario
+=======
+const inicioSesionExitoso = (correo)=>{
+
+    const sesionUser = {
+        correo: correo
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
     };
    
     localStorage.setItem("sesionUser", JSON.stringify(sesionUser));

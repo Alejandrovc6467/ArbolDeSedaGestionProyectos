@@ -15,13 +15,21 @@ const getUsuarios = () => {
 
 
 //retorno un usuario si alguna cedula coincide
+<<<<<<< HEAD
 const getUsuario = (nombreUsuario) => {
+=======
+const getUsuario = (correo) => {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
     var usuarios = getUsuarios();
 
     for (let i = 0; i < usuarios.length; i++) {
        
+<<<<<<< HEAD
         if (usuarios[i].nombreUsuario === nombreUsuario) {
+=======
+        if (usuarios[i].correo === correo) {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
             return usuarios[i];
         }
     }
@@ -180,13 +188,21 @@ const getMedicos = () => {
 };
 
 // retorno un medico si hay alguna coincidencia con la cedula
+<<<<<<< HEAD
 const getMedico = (nombreUsuario) => {
+=======
+const getMedico = (correo) => {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
     var medicos = getMedicos();
 
     for (let i = 0; i < medicos.length; i++) {
        
+<<<<<<< HEAD
         if (medicos[i].nombreUsuario === nombreUsuario) {
+=======
+        if (medicos[i].correo === correo) {
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
             return medicos[i];
         }
     }
@@ -502,7 +518,11 @@ const getSessionStorageUser = () => {
     var userSessionSessionStorage = []; 
     userSessionSessionStorage =  JSON.parse(sessionStorage.getItem("sesionUser"));
 
+<<<<<<< HEAD
     return userSessionSessionStorage.nombreUsuario;
+=======
+    return userSessionSessionStorage.correo;
+>>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
 };
 
