@@ -35,11 +35,7 @@ const  initializeTable = () => {
             button.innerText = 'Ver más';
             button.classList.add('verInfoMedicoButon'); // Agregar la clase "verInfoMedico"
             button.addEventListener('click', function() {
-<<<<<<< HEAD
                 abrirModalMedico(data[i].nombreUsuario);
-=======
-                abrirModalMedico(data[i].correo);
->>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
             });
             buttonCell.appendChild(button);
             
@@ -50,15 +46,9 @@ const  initializeTable = () => {
 
 
     /*nuevo */
-<<<<<<< HEAD
     const abrirModalMedico = (nombreUsuario) =>{
 
         const medico = getMedico(nombreUsuario);
-=======
-    const abrirModalMedico = (correo) =>{
-
-        const medico = getMedico(correo);
->>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
 
         
         // Rellenar campos HTML con datos del objeto medico

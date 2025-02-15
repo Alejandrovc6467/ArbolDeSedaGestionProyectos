@@ -453,13 +453,8 @@ const cargarSelectConMedicos = () => {
   // Agregar las nuevas opciones
   listaMedicos.forEach(medico => {
     const option = document.createElement('option');
-<<<<<<< HEAD
     option.value = medico.nombreUsuario;
     option.textContent = `${medico.nombreUsuario} - ${medico.nombre} ${medico.apellidos}`;
-=======
-    option.value = medico.correo;
-    option.textContent = `${medico.correo} - ${medico.nombre} ${medico.apellidos}`;
->>>>>>> aa50fc03ad1b7116f068e5be9672a66a1452fd19
     selectMedicos.appendChild(option);
   });
 
