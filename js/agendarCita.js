@@ -453,17 +453,17 @@ const cargarSelectConMedicos = () => {
   // Agregar las nuevas opciones
   listaMedicos.forEach(medico => {
     const option = document.createElement('option');
-    option.value = medico.cedula;
-    option.textContent = `${medico.cedula} - ${medico.nombre} ${medico.apellidos}`;
+    option.value = medico.nombreUsuario;
+    option.textContent = `${medico.nombreUsuario} - ${medico.nombre} ${medico.apellidos}`;
     selectMedicos.appendChild(option);
   });
 
 };
 
 //cargo el select de especialidad con la especialidad del medico que se recibe por parametro
-const cargarSelectConEspecialidad = (cedulaMedico) => {
+const cargarSelectConEspecialidad = (nombreUsuario) => {
   // Obtener el médico correspondiente a la cédula
-  var medico = getMedico(cedulaMedico);
+  var medico = getMedico(nombreUsuario);
   console.log(medico.especialidad);
 
   document.getElementById('especialidadInput').value = medico.especialidad;

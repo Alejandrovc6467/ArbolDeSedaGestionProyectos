@@ -15,13 +15,13 @@ const getUsuarios = () => {
 
 
 //retorno un usuario si alguna cedula coincide
-const getUsuario = (cedula) => {
+const getUsuario = (nombreUsuario) => {
 
     var usuarios = getUsuarios();
 
     for (let i = 0; i < usuarios.length; i++) {
        
-        if (usuarios[i].cedula === cedula) {
+        if (usuarios[i].nombreUsuario === nombreUsuario) {
             return usuarios[i];
         }
     }
@@ -65,99 +65,107 @@ const getMedicos = () => {
     medicos = [
         
             {
-                "cedula": "1-2345-6789",
+                "nombreUsuario": "Ana1234",
                 "nombre": "Ana",
                 "apellidos": "González",
                 "telefono": "7777-8888",
                 "correo": "alejandrovc6467@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Dermatólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Apasionada por cuidar la piel y mejorar la salud dermatológica. Brindo atención médica profesional y personalizada."
             },
             {
-                "cedula": "9-8765-4321",
+                "nombreUsuario": "luisa1234",
                 "nombre": "Luisa",
                 "apellidos": "Martínez",
                 "telefono": "5555-6666",
                 "correo": "luisamartinez@gmail.com",
+                "pais":"Colombia",
                 "especialidad": "Pediatra",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Dedicada a brindar atención pediátrica integral. Me apasiona cuidar y promover la salud de los niños."
             },
             {
-                "cedula": "8-7654-3210",
+                "nombreUsuario": "carlos1234",
                 "nombre": "Carlos",
                 "apellidos": "Sánchez",
                 "telefono": "3333-4444",
                 "correo": "carlossanchez@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Psiquiatra",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Experto en salud mental, brindo atención profesional y empática para mejorar la calidad de vida."
             },
             {
-                "cedula": "7-6543-2109",
+                "nombreUsuario": "maria1234",
                 "nombre": "María",
                 "apellidos": "López",
                 "telefono": "2222-3333",
                 "correo": "marialopez@gmail.com",
+                "pais":"Nigeria",
                 "especialidad": "Oftalmólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Apasionada por la salud ocular. Ofrezco atención oftalmológica de calidad para cuidar la visión de mis pacientes."
             },
             {
-                "cedula": "6-5432-1098",
+                "nombreUsuario": "jorge1234",
                 "nombre": "Jorge",
                 "apellidos": "Hernández",
                 "telefono": "9999-0000",
                 "correo": "jorgehernandez@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Ginecólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Comprometido con la salud de las mujeres. Brindo atención ginecológica integral y promuevo el bienestar femenino."
             },
             {
-                "cedula": "5-4321-0987",
+                "nombreUsuario": "pedro1234",
                 "nombre": "Pedro",
                 "apellidos": "Díaz",
                 "telefono": "1111-2222",
                 "correo": "pedrodiaz@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Nutricionista",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Promuevo una alimentación saludable y equilibrada para mejorar la calidad de vida y prevenir enfermedades."
             },
             {
-                "cedula": "4-3210-9876",
+                "nombreUsuario": "sofia1234",
                 "nombre": "Sofía",
                 "apellidos": "Ramírez",
                 "telefono": "6666-7777",
                 "correo": "sofiaramirez@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Dentista",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Apasionada por cuidar la salud bucal. Brindo tratamientos dentales de calidad para mantener sonrisas saludables."
             },
             {
-                "cedula": "3-2109-8765",
+                "nombreUsuario": "elena1234",
                 "nombre": "Elena",
                 "apellidos": "Vargas",
                 "telefono": "4444-5555",
                 "correo": "elenavargas@gmail.com",
+                "pais":"Costa Rica",
                 "especialidad": "Endocrinólogo",
                 "horariosConsulta": "Lunes - Viernes (8am - 4pm)",
                 "contrasenia": "65a711dfbb47646488f342e34dfdb0f038a49cedf20bff55a50e05ce44bbae1f",
-                "rol": "medico",
+                "tipo": "medico",
                 "biografia": "Especialista en equilibrio hormonal. Brindo atención médica integral para mejorar la salud endocrina de mis pacientes."
             }
         
@@ -172,13 +180,13 @@ const getMedicos = () => {
 };
 
 // retorno un medico si hay alguna coincidencia con la cedula
-const getMedico = (cedula) => {
+const getMedico = (nombreUsuario) => {
 
     var medicos = getMedicos();
 
     for (let i = 0; i < medicos.length; i++) {
        
-        if (medicos[i].cedula === cedula) {
+        if (medicos[i].nombreUsuario === nombreUsuario) {
             return medicos[i];
         }
     }
@@ -494,7 +502,7 @@ const getSessionStorageUser = () => {
     var userSessionSessionStorage = []; 
     userSessionSessionStorage =  JSON.parse(sessionStorage.getItem("sesionUser"));
 
-    return userSessionSessionStorage.cedula;
+    return userSessionSessionStorage.nombreUsuario;
 
 };
 
@@ -503,7 +511,7 @@ const getLocalStorageUser = () => {
 
     var userLocalSessionStorage = []; 
     userLocalSessionStorage =  JSON.parse(localStorage.getItem("sesionUser"));
-    return userLocalSessionStorage.cedula;
+    return userLocalSessionStorage.nombreUsuario;
 
 };
 

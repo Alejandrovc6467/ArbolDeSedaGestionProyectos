@@ -9,18 +9,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
         event.preventDefault()
         
 
-        const {cedula, nombre, apellidos, telefono, correo, contrasenia, contraseniaVerificacion} = getDatosFormularioRegitroUsuario();
+        const {nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion} = getDatosFormularioRegitroUsuario();
 
-        console.log(cedula, nombre, apellidos, telefono, correo, contrasenia, contraseniaVerificacion);
+        console.log(nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion);
 
-        const datosValidos = validarCedula(cedula) && validarNombre(nombre) && validarApellidos(apellidos) && validarTelefono(telefono)  && validarEmail(correo) && validarPassword(contrasenia);
+        const datosValidos =  validarNombre(nombre) && validarApellidos(apellidos) && validarTelefono(telefono)  && validarEmail(correo) && validarPassword(contrasenia);
 
     
         if(datosValidos){
 
             if( verificarIgualdadPassword(contrasenia, contraseniaVerificacion) ){
 
-                registarUsuario(cedula, nombre, apellidos, telefono, correo, contrasenia);
+                registarUsuario(nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia);
             }
         }
       
@@ -33,15 +33,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
 //obtener datos del formulario
 const getDatosFormularioRegitroUsuario = ()=>{
 
-    const cedula = document.getElementById("cedula").value.trim();
+    const nombreUsuario = document.getElementById("nombreUsuario").value.trim();
     const nombre = document.getElementById("nombre").value.trim();
     const apellidos = document.getElementById("apellidos").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
     const correo = document.getElementById("correo").value.trim();
+    const pais = document.getElementById("pais").value.trim();
     const contrasenia = document.getElementById("contrasenia").value.trim();
     const contraseniaVerificacion = document.getElementById("contrasenia_verificacion").value.trim();
 
-    return {cedula, nombre, apellidos, telefono, correo, contrasenia, contraseniaVerificacion};
+    return {nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion};
 };
 
 
@@ -60,6 +61,7 @@ const validarCedula = (cedula)=>{
     }
 };
 
+/*
 // Obtener el campo de entrada del input cedula en directo
 document.getElementById("cedula").addEventListener("input", function() {
     // Obtener el valor actual del campo
@@ -83,6 +85,7 @@ document.getElementById("cedula").addEventListener("input", function() {
     this.value = valor;
      
 });
+*/
 
 
 
@@ -213,15 +216,13 @@ const verificarIgualdadPassword = (contrasenia, contraseniaVerificacion) =>{
 
 
 
-const registarUsuario = (cedula, nombre, apellidos, telefono, correo, contrasenia) =>{
+const registarUsuario = (nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia) =>{
 
-    if(verificarExistenciaUsuario(cedula)){
-        registrarUsuarioEnLocalStorage(cedula, nombre, apellidos, telefono, correo, contrasenia);
-        mostrarModalNotificacion("Registro exitoso");
-        limpiarCamposTexto();
-    }else{
-        mostrarModalNotificacion("La cédula ingresada ya está registrada");
-    }
+   
+    registrarUsuarioEnLocalStorage(nombreUsuario, nombre, apellidos, telefono, correo,pais, contrasenia);
+    mostrarModalNotificacion("Registro exitoso");
+    limpiarCamposTexto();
+  
 
 };
 
@@ -249,7 +250,7 @@ const limpiarCamposTexto = () => {
 
 
 // esta funcion deberia ir en el getUsuariosMedicosCitas *********
-const registrarUsuarioEnLocalStorage = (cedula, nombre, apellidos, telefono, correo, contrasenia) => {
+const registrarUsuarioEnLocalStorage = (nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia) => {
 
     var usuarios = getUsuarios();
 
@@ -259,18 +260,19 @@ const registrarUsuarioEnLocalStorage = (cedula, nombre, apellidos, telefono, cor
     
     
     const nuevoUsuario = {
-        cedula: cedula,
+        nombreUsuario: nombreUsuario,
         nombre: nombre,
         apellidos: apellidos,
         telefono: telefono,
         correo: correo,
+        pais: pais,
         contrasenia: contraseniaHash,
-        rol: "usuario"
+        tipo: "usuario"
     };
    
     usuarios.push(nuevoUsuario);
   
-    // puse esto en un if para ver si me mostrba un true o false, pero no retorna nada, entonces voy a retornar un trie siempre abajo para indicar que todo salio bien
+   
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
   
@@ -281,17 +283,3 @@ const registrarUsuarioEnLocalStorage = (cedula, nombre, apellidos, telefono, cor
 
 
 
-const verificarExistenciaUsuario = (cedula) => {
-
-   
-    var usuarios = getUsuarios();
-
-    for (let i = 0; i < usuarios.length; i++) {
-       
-        if (usuarios[i].cedula === cedula) {
-            return false;
-        }
-    }
-   
-    return true;
-};

@@ -20,21 +20,22 @@ const  initializeTable = () => {
         table.innerHTML = '';
         for (let i = startIndex; i < endIndex; i++) {
             const row = table.insertRow();
-            row.insertCell(0).innerText = data[i].cedula;
+            row.insertCell(0).innerText = data[i].nombreUsuario;
             row.insertCell(1).innerText = data[i].nombre;
             row.insertCell(2).innerText = data[i].apellidos;
             row.insertCell(3).innerText = data[i].especialidad;
+            row.insertCell(4).innerText = data[i].pais;
           
 
             
 
             // Crear el botón y asignarle la función con la cédula como argumento
-            const buttonCell = row.insertCell(4);
+            const buttonCell = row.insertCell(5);
             const button = document.createElement('button');
             button.innerText = 'Ver más';
             button.classList.add('verInfoMedicoButon'); // Agregar la clase "verInfoMedico"
             button.addEventListener('click', function() {
-                abrirModalMedico(data[i].cedula);
+                abrirModalMedico(data[i].nombreUsuario);
             });
             buttonCell.appendChild(button);
             
@@ -45,18 +46,19 @@ const  initializeTable = () => {
 
 
     /*nuevo */
-    const abrirModalMedico = (cedula) =>{
+    const abrirModalMedico = (nombreUsuario) =>{
 
-        const medico = getMedico(cedula);
+        const medico = getMedico(nombreUsuario);
 
         
         // Rellenar campos HTML con datos del objeto medico
         document.getElementById('nombreInfoMedico').textContent = medico.nombre+" "+ medico.apellidos;
-        document.getElementById('cedulaInfoMedico').textContent = medico.cedula;
+        document.getElementById('cedulaInfoMedico').textContent = medico.nombreUsuario;
         document.getElementById('especialidadInfoMedico').textContent = medico.especialidad;
         document.getElementById('horariosInfoMedico').textContent = medico.horariosConsulta;
         document.getElementById('telefonoInfoMedico').textContent = medico.telefono;
         document.getElementById('correoInfoMedico').textContent = medico.correo;
+        document.getElementById('paisInfoMedico').textContent = medico.pais;
         document.getElementById('biografiaInfoMedico').textContent = medico.biografia;
         
         mostrarMedicoModal();
@@ -64,6 +66,7 @@ const  initializeTable = () => {
     };
 
 
+    /*
     // Obtener el campo de entrada del input buscarCedula en directo
     document.getElementById("buscarCedula").addEventListener("input", function() {
         // Obtener el valor actual del campo
@@ -87,6 +90,7 @@ const  initializeTable = () => {
         this.value = valor;
         
     });
+    /*
 
     /**nuevo */
 
@@ -159,10 +163,11 @@ const  initializeTable = () => {
         const filtroNombre = document.getElementById('buscarNombre').value.toLowerCase();
         const filtroApellidos = document.getElementById('buscarApellidos').value.toLowerCase();
         const filtroEspecialidad = document.getElementById('buscarEspecialidad').value.toLowerCase();
+        const filtroPais = document.getElementById('buscarPais').value.toLowerCase();
        
 
         filteredData = originalData.filter(function(item) {
-            return item.cedula.toString().includes(filtroCedula) &&  item.nombre.toLowerCase().includes(filtroNombre) &&  item.apellidos.toLowerCase().includes(filtroApellidos) &&  item.especialidad.toLowerCase().includes(filtroEspecialidad);
+            return item.nombreUsuario.toString().includes(filtroCedula) &&  item.nombre.toLowerCase().includes(filtroNombre) &&  item.apellidos.toLowerCase().includes(filtroApellidos) &&  item.especialidad.toLowerCase().includes(filtroEspecialidad) && item.pais.toLowerCase().includes(filtroPais);;
         });
 
         currentPage = 1;
@@ -177,6 +182,7 @@ const  initializeTable = () => {
     document.getElementById('buscarNombre').addEventListener('keyup', filterTable);
     document.getElementById('buscarApellidos').addEventListener('keyup', filterTable);
     document.getElementById('buscarEspecialidad').addEventListener('keyup', filterTable);
+    document.getElementById('buscarPais').addEventListener('keyup', filterTable);
     
 }
 
