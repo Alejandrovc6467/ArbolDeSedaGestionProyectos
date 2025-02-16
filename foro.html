@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/foro.css">
+
+</head>
+<body>
+    
+    <header class="header" id="header">
+
+        <a href="index.html" class="navBar_logo">Árbol de Seda<i class="fa-solid fa-tree fa-lg"></i></a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="navbar_icons">
+            <i class="fa-solid fa-bars fa-lg icon_abrir" id="botonAbrirNav"></i>
+            <i class="fa-solid fa-xmark fa-lg icon_cerrar" id="botonCerrarNav"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="agendarCita.html">Agendar de citas</a>
+            <a href="busquedaMedicos.html">Búsqueda de médicos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="donar.html">Donar</a>
+            <a href="sobreNosotros.html">Sobre nosotros</a>
+        </nav>
+        
+    </header>
+
+    <main>
+
+        <div id="contenedorEncabezado">
+            <h1>Preguntas y respuestas</h1>
+            <button>Nuevo tópico</button>
+        </div>
+        <div id="contenedorForo"></div>
+
+    </main>
+
+    <!-- <footer class="mi-footer">
+        
+        <div class="mi-footer-contenido">
+         
+           <div class="footer_derechos">
+                <p>© 2025 Universidad de Costa Rica</p><br>
+           </div>
+
+           <div class="footer_redes">
+                <a href="contacto.html">Contacto</a>
+                <a href="preguntasFrecuentes.html">Preguntas (FAQ)</a>
+                <a href="politicaPrivacidad.html">Política de privacidad</a>
+                <a href="foto.html">Foro</a>
+           </div> 
+
+        </div>
+
+    </footer> -->
+
+    <script type="module" src="js/ConsumoAPI/Util.js"></script>
+    <script type="module" src="js/ConsumoAPI/Util.js"></script>
+    <script type="module" src="js/ConsumoAPI/ConsumoForo.js"></script>
+    <script type="module" src="js/ConsumoAPI/ConsumoComentario.js"></script>
+    <script type="module" src="js/foro.js"></script>
+    <script type="module" src="js/Util/fechas.js"></script>
+
+</body>
+</html>

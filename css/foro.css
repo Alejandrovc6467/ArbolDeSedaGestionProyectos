@@ -1,0 +1,52 @@
+main {
+    margin-top: 5em;
+}
+
+h1 {
+    text-align: center;
+}
+
+.itemForo {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+}
+
+.itemForo h3 {
+    margin: 0;
+}
+
+.foro-detalles {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em 0;
+}
+
+.contenedorNuevoComentario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    gap: 0 1em;
+}
+
+textarea {
+    resize: none;
+}
+
+hr {
+    border: .05em solid gray;
+    width: 100vw;
+}
+
+#contenedorEncabezado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0 1em; 
+}
