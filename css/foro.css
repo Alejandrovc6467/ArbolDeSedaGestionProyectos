@@ -50,3 +50,9 @@ hr {
     justify-content: center;
     gap: 0 1em; 
 }
+
+.comentarioSingular{
+    display: flex;
+    flex-direction: row;
+    gap: 0 1em;
+}
