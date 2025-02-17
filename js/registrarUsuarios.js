@@ -1,4 +1,4 @@
-
+import {registrarUsuarioBD} from "/js/ConsumoAPI/ConsumoUsuario.js";
 
 // Formulario Registro de usuarios 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         const {nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion} = getDatosFormularioRegitroUsuario();
 
-        console.log(nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion);
+        // console.log(nombreUsuario, nombre, apellidos, telefono, correo, pais, contrasenia, contraseniaVerificacion);
 
         const datosValidos =  validarNombre(nombre) && validarApellidos(apellidos) && validarTelefono(telefono)  && validarEmail(correo) && validarPassword(contrasenia);
 
@@ -256,7 +256,7 @@ const registrarUsuarioEnLocalStorage = (nombreUsuario, nombre, apellidos, telefo
 
     var contraseniaHash = encriptarPassword(contrasenia);
 
-    console.log(contraseniaHash);
+    // console.log(contraseniaHash);
     
     
     const nuevoUsuario = {
@@ -265,15 +265,16 @@ const registrarUsuarioEnLocalStorage = (nombreUsuario, nombre, apellidos, telefo
         apellidos: apellidos,
         telefono: telefono,
         correo: correo,
+        contrasenia: contrasenia,
+        especialidad: null,
         pais: pais,
-        contrasenia: contraseniaHash,
         tipo: "usuario"
     };
    
     usuarios.push(nuevoUsuario);
   
-   
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    registrarUsuarioBD(nuevoUsuario);
+    // localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
   
     return true;

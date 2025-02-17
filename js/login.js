@@ -1,3 +1,5 @@
+import {autenticarUsuarioBD} from "/js/ConsumoAPI/ConsumoUsuario.js";
+
 // Formulario Login
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -59,29 +61,38 @@ document.getElementById("cedula").addEventListener("input", function() {
 
 
 //verificar Login
-const verificarLogin = (nombreUsuario, contrasenia)=>{
+const verificarLogin = async (nombreUsuario, contrasenia)=>{
 
-    var contraseniaHash = encriptarPassword(contrasenia);
+    // var contraseniaHash = encriptarPassword(contrasenia);
 
-    var usuarios = getUsuarios();
+    // var usuarios = getUsuarios();
 
-    for (let i = 0; i < usuarios.length; i++) {
+    // for (let i = 0; i < usuarios.length; i++) {
        
-        if (usuarios[i].nombreUsuario === nombreUsuario && usuarios[i].contrasenia === contraseniaHash  ) {
-            return true
-        }
-    }
+    //     if (usuarios[i].nombreUsuario === nombreUsuario && usuarios[i].contrasenia === contraseniaHash  ) {
+    //         return true
+    //     }
+    // }
 
-    var medicos = getMedicos();
+    // var medicos = getMedicos();
 
-    for (let i = 0; i < medicos.length; i++) {
+    // for (let i = 0; i < medicos.length; i++) {
        
-        if (medicos[i].nombreUsuario === nombreUsuario && medicos[i].contrasenia === contraseniaHash ) {
-            return true
-        }
-    }
+    //     if (medicos[i].nombreUsuario === nombreUsuario && medicos[i].contrasenia === contraseniaHash ) {
+    //         return true
+    //     }
+    // }
    
-    return false;
+    // return false;
+
+    const usuario = {
+        nombreUsuario: nombreUsuario,
+        contrasenia: contrasenia
+    };
+
+    const resultado = await autenticarUsuarioBD(usuario);
+
+    return resultado.autenticado;
 
 };
 
