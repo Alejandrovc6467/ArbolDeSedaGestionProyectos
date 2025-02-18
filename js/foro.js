@@ -61,9 +61,11 @@ topicos.forEach(topico => {
   botonNuevoComentario.addEventListener('click', async () => {
     const contenidoComentario = textAreaNuevoComentario.value.trim();
 
+    console.log(getSessionStorageUserID());
+    
     if (contenidoComentario) {
       const comentario = {
-        idUsuario: 1,
+        idUsuario: getSessionStorageUserID(),
         idTopico: topico.id,
         fechaHora: obtenerFechaActual(),
         contenido: contenidoComentario
@@ -92,6 +94,10 @@ topicos.forEach(topico => {
 
   contenedorForo.appendChild(itemForo);
 });
+
+
+
+
 
 
 const botonNuevoTopico = document.querySelector('#contenedorEncabezado button');
@@ -135,7 +141,7 @@ botonEnviarTopico.addEventListener('click', async () => {
     const nuevoTopico = {
       asunto: titulo,
       contenido: contenido,
-      idUsuario: 1  
+      idUsuario: getSessionStorageUserID() 
     };
 
     try {

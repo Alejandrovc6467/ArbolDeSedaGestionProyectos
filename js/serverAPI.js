@@ -1,5 +1,6 @@
 // Usuarios
 
+
 //obtener una lista de todos los usuarios
 const getUsuarios = () => {
     //localStorage.clear();
@@ -14,18 +15,42 @@ const getUsuarios = () => {
 };
 
 
-//retorno un usuario si alguna cedula coincide
-const getUsuario = (nombreUsuario) => {
+const getUsuariosApi = async () => {
+    try {
+        const response = await fetch("https://arboldesedabackend.onrender.com/usuario");
+        if (!response.ok) {
+            throw new Error("Error al obtener los usuarios");
+        }
+        const usuarios = await response.json();
 
-    var usuarios = getUsuarios();
+        // Filtrar solo los usuarios con tipo "usuario"
+        const usuariosFiltrados = usuarios.filter(user => user.tipo === "usuario");
+
+        // Guardar en localStorage
+        //localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
+
+        return usuariosFiltrados;
+    } catch (error) {
+        console.error("Error al obtener usuarios:", error);
+        return [];
+    }
+};
+
+
+
+const getUsuario =  (nombreUsuario) => {
+
+    var usuarios =  getUsuarios();
 
     for (let i = 0; i < usuarios.length; i++) {
        
         if (usuarios[i].nombreUsuario === nombreUsuario) {
+          
             return usuarios[i];
+           
         }
     }
-   
+
     return null;
 };
 
@@ -60,7 +85,9 @@ const actualizarContraseniaUsuario = (cedula,  newContrasenia) => {
 
 // Medicos 
 //retorno una lista de medicos
-const getMedicos = () => {      
+const getMedicos = () => {  
+    
+    //lamar al api aqui y luego filtrar a los medicos
 
     medicos = [
         
@@ -179,10 +206,54 @@ const getMedicos = () => {
 
 };
 
-// retorno un medico si hay alguna coincidencia con la cedula
-const getMedico = (nombreUsuario) => {
+/*
+const getMedicos = () =>{
+     return edicos = [
+        
+        {
+            "nombreUsuario": "medico",
+            "nombre": "nombre",
+            "apellidos": "apellidos",
+            "telefono": "telefono",
+            "correo": "correo",
+            "contrasenia": "contrasenia",
+            "especialidad": "Pso",
+            "pais": "pais",
+            "tipo": "usuario"
+        }
+    ];
+}
+    */
 
-    var medicos = getMedicos();
+
+const getMedicosApi = async () => {
+    try {
+        const response = await fetch("https://arboldesedabackend.onrender.com/usuario");
+        if (!response.ok) {
+            throw new Error("Error al obtener los usuarios");
+        }
+        const usuarios = await response.json();
+
+        // Filtrar solo los usuarios con tipo "usuario"
+        const usuariosFiltrados = usuarios.filter(user => user.tipo === "medico");
+
+        // Guardar en localStorage
+        localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
+
+        console.log("aqui get medd");
+        console.log(usuariosFiltrados);
+        return usuariosFiltrados;
+    } catch (error) {
+        console.error("Error al obtener usuarios:", error);
+        return [];
+    }
+};
+
+
+// retorno un medico si hay alguna coincidencia con la cedula
+const getMedico =  (nombreUsuario) => {
+
+    var medicos =  getMedicos();
 
     for (let i = 0; i < medicos.length; i++) {
        
@@ -259,11 +330,12 @@ const getCitasUsuario = (cedula, fecha) => {
 //obtengo todas las citas de un usurio SIN IMPORTAR LA FECHA, ABSOLUTAMENTE TODAS
 //Tambien si el rol es doctor se obtienen todas las citas de sus pacientes
 //este metodo es para el apartado del expediente
-const getCitasTodas = (cedula) => {
+const getCitasTodas =  (cedula) => {
 
     var citas = getCitas();
     var citasRetornar = [];
 
+    
     if(getUsuario(getSessionStorageUser()) != null ){
         console.log('es usuario');
          
@@ -357,11 +429,11 @@ const verificarExistenciaCitaEseDiaMedico = (cedula, fecha) => {
 };
 
 // agrega una nueva cita
-const setCita = (usuarioCedula,fecha, hora, especialidad, cedulaMedico) => {
+const setCita = async (usuarioCedula,fecha, hora, especialidad, cedulaMedico) => {
 
     var citas = getCitas();
     
-    var medicoCita = getMedico(cedulaMedico);
+    var medicoCita = await getMedico(cedulaMedico);
 
     var identificador = getIndentificadorCita();
 
@@ -503,6 +575,16 @@ const getSessionStorageUser = () => {
     userSessionSessionStorage =  JSON.parse(sessionStorage.getItem("sesionUser"));
 
     return userSessionSessionStorage.nombreUsuario;
+
+};
+
+
+const getSessionStorageUserID = () => {
+
+    var userSessionSessionStorage = []; 
+    userSessionSessionStorage =  JSON.parse(sessionStorage.getItem("sesionUser"));
+
+    return userSessionSessionStorage.id;
 
 };
 

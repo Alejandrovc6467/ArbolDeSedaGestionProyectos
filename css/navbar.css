@@ -125,3 +125,45 @@
    
    
 }
+
+
+
+
+
+
+/* selector*/
+
+
+.container_selector{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    border: 2px solid var(--colorSecundarioVeterinaria); 
+    
+}
+
+
+ .container_selector a{
+    margin: 0px 10px;
+    text-decoration: none;
+    color: var(--colorTextoP);
+    color:  var(--colorSecundarioVeterinaria); 
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+
+   
+    cursor: pointer;
+    transition: 0.5s;
+} 
+
+
+
+
+
+.seleccionado{
+    color: var(--colorBaseVeterinaria);
+    font-size: 25px;
+    color: red;
+}

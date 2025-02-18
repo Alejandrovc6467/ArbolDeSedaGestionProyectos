@@ -64,17 +64,13 @@
         <div class="agendarCita">
 
             <div class="container_logoutSesion_agendarCita">
-
                 <div class="container_selector">
-                    <a href="agendarCita.html" style="color: var(--colorBaseVeterinaria); font-family: var(--Permanent-Marker); font-weight: 600; font-size: 16px;">Agendar cita</a>
-                    <a href="hostorialMedico.html">Historial Médico</a>
+                    <a href="agendarCita.html">Agendar cita</a>
+                    <a href="hostorialMedico.html" style="color: var(--colorBaseVeterinaria); font-family: var(--Permanent-Marker); font-weight: 600; font-size: 16px;">Historial Médico</a>
                     <a href="foro.html">Foro</a>
                 </div>
-                
                 <button id="cerrarSesion"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesion</button>
             </div>
-
-           
 
             <div class="bienvenida_agendarCita">
                 <h2>Bienvenido</h2>
@@ -82,48 +78,28 @@
             </div>
 
 
-            <div class="containerCalendar">
+        
 
-                <div class="calendar">
-                    <header>
-                      <h3></h3>
-                      <nav>
-                        <button id="prev"></button>
-                        <button id="next"></button>
-                      </nav>
-                    </header>
-                    <section>
-                      <ul class="days">
-                        <li>Dom</li>
-                        <li>Lun</li>
-                        <li>Mar</li>
-                        <li>Mié</li>
-                        <li>Jue</li>
-                        <li>Vie</li>
-                        <li>Sáb</li>
-                      </ul>
-                      <ul class="dates"></ul>
-                    </section>
-                </div>
+            <div class="container_expediente">
 
-                <div class="container_citas">
+                <div class="sucontainer_expediente">
 
-                    <div class="citas" id="citas">
-          
-
-
+                    <div class="expdiente_head">
+                        <p>Historial Médico</p>
                     </div>
-                    
-                    <div class="container_boton_agregarCita ">
-                        <button id="boton_agregarCita" class="boton_agregarCita"><i class="fa-solid fa-circle-plus fa-lg"></i>Agendar nueva cita</button>
+                    <div class="expediente_body">
+    
+                   
+                        
+
+                        
+                       
                     </div>
-                    
+
                 </div>
-
-            </div> 
-
-
-          
+             
+            </div>
+           
 
             
             
@@ -233,7 +209,7 @@
 
     <script src="js/StyleScript.js?22"></script>
     <script src="js/serverAPI.js?3"></script>
-    <script src="js/agendarCita.js?3"></script>
+    <script src="js/hostorialMedico.js"></script>
    
     <script>
         logout();

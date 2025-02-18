@@ -273,11 +273,14 @@ const registrarUsuarioEnLocalStorage = (nombreUsuario, nombre, apellidos, telefo
    
     usuarios.push(nuevoUsuario);
   
-    registrarUsuarioBD(nuevoUsuario);
-    // localStorage.setItem("usuarios", JSON.stringify(usuarios));
+ 
+    if(registrarUsuarioBD(nuevoUsuario)){
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));   
+        return true;
+    }
 
   
-    return true;
+    return false;
    
 };
 

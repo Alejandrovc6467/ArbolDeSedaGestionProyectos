@@ -25,11 +25,13 @@ export async function autenticarUsuarioBD(usuario) {
             body: JSON.stringify(usuario)
         });
 
-        if (response.status === 401) {
+        if (response.status === 401  || response.status === 404) {
             return { autenticado: false, mensaje: 'Usuario o contraseña incorrectos' };
         }
 
         const resultado = await response.json();
+        console.log(resultado);
+        
         return { autenticado: true, usuario: resultado };
 
     } catch (error) {

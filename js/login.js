@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const formularioLogin = document.getElementById("login");
 
-    formularioLogin.addEventListener("submit", (event)=>{
+    formularioLogin.addEventListener("submit", async (event)=>{
         event.preventDefault()
 
         const {nombreUsuario, contrasenia} = getDatosFormulario();
@@ -14,9 +14,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         console.log(getUsuarios(), "desde el login event solo para ver los usuarios registrados")
 
-        const esValido = verificarLogin(nombreUsuario, contrasenia);
+        const esValido = await verificarLogin(nombreUsuario, contrasenia);
 
-        esValido ? inicioSesionExitoso(nombreUsuario) : errorInicioSesion();
+        
+
+        //esValido ? inicioSesionExitoso(nombreUsuario) : errorInicioSesion();
     });
 
 });
@@ -31,32 +33,6 @@ const getDatosFormulario = ()=>{
 };
 
 
-
-/*
-// Obtener el campo de entrada del input cedula en directo
-document.getElementById("cedula").addEventListener("input", function() {
-    // Obtener el valor actual del campo
-    var valor = this.value;
-            
-    // Eliminar cualquier carácter que no sea un dígito o un guión
-    valor = valor.replace(/[^\d-]/g, "");
-
-    // Limitar la longitud de la cadena a 12 caracteres (#-####-####)
-    valor = valor.slice(0, 11);
-
-    // Verificar si la longitud actual permite insertar el guión automáticamente
-    if (valor.length > 1 && valor.charAt(1) !== '-') {
-        valor = valor.slice(0, 1) + '-' + valor.slice(1);
-    }
-    if (valor.length > 6 && valor.charAt(6) !== '-') {
-        valor = valor.slice(0, 6) + '-' + valor.slice(6);
-    }
-
-    // Actualizar el valor del campo con la máscara aplicada
-    this.value = valor;
-     
-});
-*/
 
 
 
@@ -92,23 +68,35 @@ const verificarLogin = async (nombreUsuario, contrasenia)=>{
 
     const resultado = await autenticarUsuarioBD(usuario);
 
-    return resultado.autenticado;
+    if(resultado.autenticado){
+        inicioSesionExitoso(resultado.usuario);
+    }else{
+        errorInicioSesion();
+    }
+
+    
+    //return resultado.autenticado;
 
 };
 
 
 // inicio de sesion exitoso, se invoca si todo sale bien al momento del logueo
-const inicioSesionExitoso = (nombreUsuario)=>{
+const inicioSesionExitoso = (resultado)=>{
+
+    console.log("entro a exitoso");
 
     const sesionUser = {
-        nombreUsuario: nombreUsuario
+        nombreUsuario: resultado.nombreUsuario,
+        id: resultado.id
     };
    
     localStorage.setItem("sesionUser", JSON.stringify(sesionUser));
  
     sessionStorage.setItem("sesionUser", JSON.stringify(sesionUser));
 
-    window.location.href = 'agendarCita.html';// redireciono a agendarcita
+    
+    window.location.href = 'agendarCita.html'; // Redirige a agendarCita.html
+    
    
 };
 

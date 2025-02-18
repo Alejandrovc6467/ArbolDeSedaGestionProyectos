@@ -1,10 +1,10 @@
-main {
-    margin-top: 5em;
+
+.container_foro{
+    background-color: blue;
+    justify-content: center;
 }
 
-h1 {
-    text-align: center;
-}
+
 
 .itemForo {
     margin: 10px;
@@ -49,6 +49,8 @@ hr {
     flex-direction: row;
     justify-content: center;
     gap: 0 1em;
+    background-color: red;
+ 
 }
 
 .comentarioSingular {

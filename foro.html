@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Árbol de Seda</title>
+    <link rel="icon" type="image/png" href="img/iconWebSite.png">
+    <title>Clinica Arbol de Seda</title>
 
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <!--text fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+	<!--Style animation-->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+	<!--iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!-- My css -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css?2323">
+    <link rel="stylesheet" href="css/home.css?5454">
+    <link rel="stylesheet" href="css/login.css?5454">
+    <link rel="stylesheet" href="css/registroUsuarios.css">
+    <link rel="stylesheet" href="css/agendarCita.css?1">
+    <link rel="stylesheet" href="css/modal.css?721">
+    <link rel="stylesheet" href="css/carruselServiciosMedicos.css?81">
+    <link rel="stylesheet" href="css/footer.css?2">    
     <link rel="stylesheet" href="css/foro.css">
+
 
 </head>
 
 <body>
+
+    <script src="js/autorizacionLogueo.js?314"></script>
+
 
     <header class="header" id="header">
 
@@ -25,43 +50,60 @@
         </label>
 
         <nav class="navbar">
-            <a href="agendarCita.html">Agendar de citas</a>
+            <a href="agendarCita.html">Agendar de cita</a>
             <a href="busquedaMedicos.html">Búsqueda de médicos</a>
             <a href="servicios.html">Servicios</a>
             <a href="donar.html">Donar</a>
             <a href="sobreNosotros.html">Sobre nosotros</a>
         </nav>
-
+        
     </header>
 
-    <main>
+    <main data-aos="fade-right" data-aos-duration="1500">
 
-        <div id="contenedorEncabezado">
-            <h1>Preguntas y respuestas</h1>
-            <button>Nuevo tópico</button>
+       
+        <div class="agendarCita">
+
+            <div class="container_logoutSesion_agendarCita">
+                <div class="container_selector">
+                    <a href="agendarCita.html">Agendar cita</a>
+                    <a href="hostorialMedico.html">Historial Médico</a>
+                    <a href="foro.html" style="color: var(--colorBaseVeterinaria); font-family: var(--Permanent-Marker); font-weight: 600; font-size: 16px;">Foro</a>
+                </div>
+                <button id="cerrarSesion"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesion</button>
+            </div>
+
+            <div class="bienvenida_agendarCita">
+                <h2>Bienvenido</h2>
+                <p id="bienvenida_nameUser"></p>
+            </div>
+
+
+            <!--Inicio de foro ------------------------------->
+        
+            <div class="container_foro">
+
+
+                <div id="contenedorEncabezado">
+                    <h1>Preguntas y respuestas</h1>
+                    <button>Nuevo tópico</button>
+                </div>
+    
+                <div  id="contenedorForo"></div>
+        
+
+            </div>
+            
+            <!--Inicio de foro ---------------------------------->
+
+            
+            
+
         </div>
-        <div id="contenedorForo"></div>
 
     </main>
 
-    <!-- <footer class="mi-footer">
-        
-        <div class="mi-footer-contenido">
-         
-           <div class="footer_derechos">
-                <p>© 2025 Universidad de Costa Rica</p><br>
-           </div>
 
-           <div class="footer_redes">
-                <a href="contacto.html">Contacto</a>
-                <a href="preguntasFrecuentes.html">Preguntas (FAQ)</a>
-                <a href="politicaPrivacidad.html">Política de privacidad</a>
-                <a href="foto.html">Foro</a>
-           </div> 
-
-        </div>
-
-    </footer> -->
 
     <div id="modalCrearTopico" class="modal">
         <div class="modal-contenido">
@@ -74,14 +116,89 @@
     </div>
 
 
+    <script src="js/serverAPI.js?3"></script>
     <script type="module" src="js/ConsumoAPI/Util.js"></script>
     <script type="module" src="js/ConsumoAPI/Util.js"></script>
     <script type="module" src="js/ConsumoAPI/ConsumoForo.js"></script>
     <script type="module" src="js/ConsumoAPI/ConsumoComentario.js"></script>
-    <script type="module" src="js/foro.js"></script>
+    <script type="module" src="js/foro.js?12"></script>
     <script type="module" src="js/Util/fechas.js"></script>
 
 
+
+    <footer class="mi-footer">
+        
+        <div class="mi-footer-contenido">
+         
+           <div class="footer_derechos">
+                <p>© 2025 Universidad de Costa Rica</p><br>
+           </div>
+
+           <div class="footer_redes">
+                <a href="contacto.html">Contacto</a>
+                <a href="preguntasFrecuentes.html">Preguntas (FAQ)</a>
+                <a href="politicaPrivacidad.html">Política de privacidad</a>
+           </div> 
+
+        </div>
+
+    </footer>
+
+
+    
+
+    
+
+    <!-- Js animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="js/StyleScript.js?22"></script>
+    
+    <script>
+         //obtener variables de session para colocarlas en la bienvenida
+        const getNombreApellidosVariablesDeSesion = async () => {
+
+        var bienvenida_nameUser = document.getElementById("bienvenida_nameUser");
+
+        if( getUsuario(getSessionStorageUser()) != null ){
+
+        var datosUser =  await getUsuario(getSessionStorageUser());
+
+        var nombreApellidos = datosUser.nombre + " " + datosUser.apellidos;
+
+        bienvenida_nameUser.textContent = nombreApellidos;
+
+        }else{
+
+        var datosMedico = await getMedico(getSessionStorageUser());
+
+        var nombreApellidos = datosMedico.nombre + " " +datosMedico.apellidos;
+
+        bienvenida_nameUser.textContent = nombreApellidos;
+
+        }
+
+        };
+
+        getNombreApellidosVariablesDeSesion();
+    </script>
+    
+   
+    <script>
+        logout();
+    </script>
+
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+    emailjs.init('q346UrtQXiVUmVMrv')
+    </script>
+    
+   
 </body>
 
 </html>

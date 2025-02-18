@@ -5,7 +5,9 @@
 */
 
 .container_logoutSesion_agendarCita{
-  text-align: end;
+  /* text-align: end; */
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 25px;
 }
