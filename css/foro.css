@@ -238,6 +238,27 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.modal h2 {
+   color: var(--colorBaseVeterinaria);
+   font-family: var(--Permanent-Marker);
+   margin-bottom: 30px;
+}
+
+.topicoEnModal{
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    background-color: #798dbb36 ;
+}
+.contenidoEnModal{
+    background-color: #798dbb36 ;
+    resize: vertical;
+    height: 200px;
+    width: 100%;
+}
+
 .modal-contenido {
     background-color: #fff;
     margin: 10% auto;
@@ -246,7 +267,23 @@ hr {
     width: 80%;
     max-width: 500px;
     border-radius: 8px;
+    
 }
+
+.modal button {
+    width: 100%;
+    margin-top: 35px;
+    color: var(--colorBaseVeterinaria);
+    font-family: var(--Permanent-Marker);
+    margin-bottom: 30px;
+    border: none;
+    color: white;
+    background-color: var(--colorSecundarioVeterinaria);
+    background-color: var(--colorBaseVeterinaria);
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+ }
 
 .cerrar-modal {
     color: #aaa;
