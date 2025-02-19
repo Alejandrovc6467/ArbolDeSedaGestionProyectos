@@ -18,27 +18,38 @@ topicos.forEach(topico => {
   const tituloNuevoComentario = document.createElement('h4');
   tituloNuevoComentario.textContent = 'Agregar Comentario';
   const textAreaNuevoComentario = document.createElement('textarea');
+  textAreaNuevoComentario.placeholder = "Escribe un nuevo comentario";
   const botonNuevoComentario = document.createElement('button');
   botonNuevoComentario.textContent = 'Contestar';
   botonNuevoComentario.disabled = true;
 
-  contenedorNuevoComentario.appendChild(tituloNuevoComentario);
+  //contenedorNuevoComentario.appendChild(tituloNuevoComentario);
   contenedorNuevoComentario.appendChild(textAreaNuevoComentario);
   contenedorNuevoComentario.appendChild(botonNuevoComentario);
 
   const hrSeparador = document.createElement('hr');
 
   itemForo.innerHTML = `
-    <h3>${topico.asunto}</h3>
-    <p>${topico.usuarioLecturaDTO.nombre} ${topico.usuarioLecturaDTO.apellidos}</p>
+    <div class="itemForo_cabecera"> 
+      <div class="itemForo_cabecera_usuario">
+        <p><i class="fa-solid fa-user"></i>${topico.usuarioLecturaDTO.nombre} ${topico.usuarioLecturaDTO.apellidos}</p>
+      </div> 
+      <div class="itemForo_cabecera_asunto">
+        <h3>${topico.asunto}</h3>
+      </div> 
+    </div>
+
     <div class="foro-detalles">
-      <p>${topico.contenido}</p>
+      <div class="itemForo_contenido">
+        <p>${topico.contenido}</p>
+      </div> 
+      ${hrSeparador.outerHTML}
       <h5>Comentarios</h5>
       <div class="comentariosContenedor"> 
       ${topico.comentarioLecturaDTO.map(comentario => {
         return `
           <div class="comentarioSingular">
-            <p>${comentario.usuarioLecturaDTO.nombre} ${comentario.usuarioLecturaDTO.apellidos}</p>
+            <p><span class="userComentario">${comentario.usuarioLecturaDTO.nombre} ${comentario.usuarioLecturaDTO.apellidos}</span> </p>
             <p>${comentario.contenido}</p>
             <p>${formatearFecha(comentario.fechaHora)}</p>
           </div>
@@ -46,7 +57,7 @@ topicos.forEach(topico => {
       }).join('')}
     </div>
     </div>
-    ${hrSeparador.outerHTML}
+    
   `;
 
   const foroDetalles = itemForo.querySelector('.foro-detalles');

@@ -1,19 +1,125 @@
 
 .container_foro{
-    background-color: blue;
+    /* background-color: blue; */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+
+#contenedorEncabezado {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    height: 60px;
+    border-radius: 15px 15px 0px 0px;
+    /* border-bottom: 2px solid var(--colorSecundarioVeterinaria); */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Sombra en la parte inferior */
+}
+
+.container_preguntas{
+    display: flex;
+    justify-content: center;
+    max-height: 550px;
+    overflow-y: auto;
+    /* background-color: yellow; */ 
+}
+
+
+/* Estilo para navegadores basados en WebKit (Chrome, Edge, Safari) */
+.container_preguntas::-webkit-scrollbar {
+    width: 8px; /* Hace el scroll más delgado */
+}
+
+.container_preguntas::-webkit-scrollbar-track {
+    background: transparent; /* Hace el fondo del scroll transparente */
+}
+
+.container_preguntas::-webkit-scrollbar-thumb {
+    background: rgba(180, 180, 180, 0.5); /* Color blanco con transparencia */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.container_preguntas::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7); /* Un poco más opaco al pasar el mouse */
+}
+
+#contenedorForo{
+    width: 100%;
 }
 
 
 
 .itemForo {
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 15px 15px 50px 15px;
+    padding: 30px;
+    /* background-color: #798dbb30; */
+    border-radius: 15px;
+    background-color: #798dbb17;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+.itemForo_cabecera{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemForo_cabecera_usuario{
+    background-color: var(--colorBaseVeterinaria);
+    background-color: #798dbbb7;
+    background-color: #798dbb;
+    background-color: #3157b1bd;
+    width: 17%;
+    height: 35px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemForo_cabecera_usuario p, i{
+   font-family: var(--Permanent-Marker);
+   color: white;
+}
+.itemForo_cabecera_asunto{
+    background-color: #798dbb;
+    /* background-color: #798dbbb7; */
+    /* background-color: #3157b1bd; */
+    background-color: #798dbb1f;
+    width: 82.5%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemForo_cabecera_asunto h3{
+   font-family: cursive;
+   color: white;
+   color: var(--colorBaseVeterinaria);
+}
+
+.itemForo_contenido{
+    background-color: #798dbb9a;
+    background-color: #798dbb2e;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 80px;
+    
+    
+}
+
+.itemForo h5{
+  
+  font-family: cursive;
+  color: var(--colorBaseVeterinaria);
+}
+
+.itemForo_contenido p{
+ color: white;
+ color: var(--colorTextoP);
+}
+
 
 .itemForo h3 {
     margin: 0;
@@ -35,29 +141,90 @@
     gap: 0 1em;
 }
 
+.contenedorNuevoComentario button{
+    background-color: var(--colorBaseVeterinaria);
+    border: none;
+    color: white;
+    border-radius: 15px;
+    height: 45px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+    font-family: cursive;
+}
+
 textarea {
     resize: none;
+    width: 90%;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
 }
 
 hr {
-    border: .05em solid gray;
-    width: 100vw;
+    border: .05em solid rgba(166, 166, 166, 0.533);
+    width: 100%;
 }
 
-#contenedorEncabezado {
+
+.container_boton_nuevoTopico{
+    width: 60%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 0 1em;
-    background-color: red;
- 
+    align-items: center;
 }
+
+.container_boton_nuevoTopico button{
+    width: 65%;
+    height: 35px;
+    border: none;
+    background-color: var(--colorBaseVeterinaria);
+    border-radius: 15px;
+    color: white;
+    font-family: var(--Permanent-Marker);
+    cursor: pointer;
+}
+
+.titulo_foro{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--Permanent-Marker);
+    color: var(--colorBaseVeterinaria);
+}
+
 
 .comentarioSingular {
     display: flex;
     flex-direction: row;
     gap: 0 1em;
+    background-color: #798dbb2e;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 15px;
 }
+
+.userComentario{
+    background-color: #3157b1bd;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-family: cursive;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+/*Modal **************************************************/
+
 
 .modal {
     display: none;

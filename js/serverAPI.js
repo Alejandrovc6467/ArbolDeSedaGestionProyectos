@@ -27,7 +27,7 @@ const getUsuariosApi = async () => {
         const usuariosFiltrados = usuarios.filter(user => user.tipo === "usuario");
 
         // Guardar en localStorage
-        //localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
+        localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
 
         return usuariosFiltrados;
     } catch (error) {

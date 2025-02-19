@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="css/agendarCita.css?1">
     <link rel="stylesheet" href="css/modal.css?721">
     <link rel="stylesheet" href="css/carruselServiciosMedicos.css?81">
-    <link rel="stylesheet" href="css/footer.css?2">    
-    <link rel="stylesheet" href="css/foro.css">
+    <link rel="stylesheet" href="css/footer.css?2">
+    <link rel="stylesheet" href="css/foro.css?11">    
+   
 
 
 </head>
@@ -83,15 +84,22 @@
         
             <div class="container_foro">
 
-
                 <div id="contenedorEncabezado">
-                    <h1>Preguntas y respuestas</h1>
-                    <button>Nuevo tópico</button>
+                    <div class="titulo_foro">
+                        <h1>Foro</h1>
+                    </div>
+                    <div class="container_boton_nuevoTopico">
+                        <button>Agregar nuevo tópico</button>
+                    </div>
+                    <div class="titulo_foro">
+                       
+                    </div>
                 </div>
     
-                <div  id="contenedorForo"></div>
-        
-
+                <div class="container_preguntas">
+                    <div  id="contenedorForo"></div>
+                </div>
+               
             </div>
             
             <!--Inicio de foro ---------------------------------->
@@ -115,13 +123,14 @@
         </div>
     </div>
 
+  
 
     <script src="js/serverAPI.js?3"></script>
     <script type="module" src="js/ConsumoAPI/Util.js"></script>
     <script type="module" src="js/ConsumoAPI/Util.js"></script>
     <script type="module" src="js/ConsumoAPI/ConsumoForo.js"></script>
     <script type="module" src="js/ConsumoAPI/ConsumoComentario.js"></script>
-    <script type="module" src="js/foro.js?12"></script>
+    <script type="module" src="js/foro.js?14"></script>
     <script type="module" src="js/Util/fechas.js"></script>
 
 
@@ -156,6 +165,8 @@
     </script>
 
     <script src="js/StyleScript.js?22"></script>
+
+   
     
     <script>
          //obtener variables de session para colocarlas en la bienvenida
@@ -197,6 +208,7 @@
     <script type="text/javascript">
     emailjs.init('q346UrtQXiVUmVMrv')
     </script>
+    
     
    
 </body>
