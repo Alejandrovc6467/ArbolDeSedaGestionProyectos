@@ -26,8 +26,15 @@ const getUsuariosApi = async () => {
         // Filtrar solo los usuarios con tipo "usuario"
         const usuariosFiltrados = usuarios.filter(user => user.tipo === "usuario");
 
+        const medicosFiltrados = usuarios.filter(user => user.tipo === "medico");
+
+
         // Guardar en localStorage
         localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
+
+
+        localStorage.setItem("medicos", JSON.stringify(medicosFiltrados));
+    
 
         return usuariosFiltrados;
     } catch (error) {
@@ -200,7 +207,7 @@ const getMedicos = () => {
     ];
 
   
-    localStorage.setItem("medicos", JSON.stringify(medicos));
+    //localStorage.setItem("medicos", JSON.stringify(medicos));
 
     return JSON.parse(localStorage.getItem("medicos"));
 
