@@ -14,9 +14,15 @@ const getUsuarios = () => {
    
 };
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 
 const getUsuariosApi = async () => {
     try {
+
+        await delay(4000); // Esperar 4 segundos antes de ejecutar la lógica
+
+
         const response = await fetch("https://arboldesedabackend.onrender.com/usuario");
         if (!response.ok) {
             throw new Error("Error al obtener los usuarios");
@@ -27,6 +33,11 @@ const getUsuariosApi = async () => {
         const usuariosFiltrados = usuarios.filter(user => user.tipo === "usuario");
 
         const medicosFiltrados = usuarios.filter(user => user.tipo === "medico");
+
+
+        localStorage.removeItem("usuarios");
+
+        localStorage.removeItem("medicos");
 
 
         // Guardar en localStorage
