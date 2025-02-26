@@ -155,6 +155,8 @@ botonEnviarTopico.addEventListener('click', async () => {
       idUsuario: getSessionStorageUserID() 
     };
 
+    console.log(nuevoTopico);
+
     try {
       await agregarTopico(nuevoTopico);
       modalCrearTopico.style.display = 'none';
