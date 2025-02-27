@@ -53,13 +53,13 @@ const  initializeTable = () => {
         
         // Rellenar campos HTML con datos del objeto medico
         document.getElementById('nombreInfoMedico').textContent = medico.nombre+" "+ medico.apellidos;
-        document.getElementById('cedulaInfoMedico').textContent = medico.nombreUsuario;
+   
         document.getElementById('especialidadInfoMedico').textContent = medico.especialidad;
-        document.getElementById('horariosInfoMedico').textContent = medico.horariosConsulta;
+        
         document.getElementById('telefonoInfoMedico').textContent = medico.telefono;
         document.getElementById('correoInfoMedico').textContent = medico.correo;
         document.getElementById('paisInfoMedico').textContent = medico.pais;
-        document.getElementById('biografiaInfoMedico').textContent = medico.biografia;
+       
         
         mostrarMedicoModal();
 
@@ -167,7 +167,7 @@ const  initializeTable = () => {
        
 
         filteredData = originalData.filter(function(item) {
-            return item.nombreUsuario.toString().includes(filtroCedula) &&  item.nombre.toLowerCase().includes(filtroNombre) &&  item.apellidos.toLowerCase().includes(filtroApellidos) &&  item.especialidad.toLowerCase().includes(filtroEspecialidad) && item.pais.toLowerCase().includes(filtroPais);;
+            return item.nombreUsuario.toLowerCase().includes(filtroCedula) &&  item.nombre.toLowerCase().includes(filtroNombre) &&  item.apellidos.toLowerCase().includes(filtroApellidos) &&  item.especialidad.toLowerCase().includes(filtroEspecialidad) && item.pais.toLowerCase().includes(filtroPais);;
         });
 
         currentPage = 1;
